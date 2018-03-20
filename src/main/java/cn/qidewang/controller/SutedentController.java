@@ -17,7 +17,8 @@ public class SutedentController {
 
 
     @RequestMapping("add")
-    public Result addStudent(){
-        return ResultUtil.success("1","abc");
+    public Result addStudent(Student student){
+        studentService.addStudent(student);
+        return ResultUtil.success("abc");
     }
 }
