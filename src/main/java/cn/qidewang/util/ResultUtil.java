@@ -11,4 +11,12 @@ public class ResultUtil {
         result.setData(data);
         return result;
     }
+
+    public static Result error(Object data){
+        Result result = new Result();
+        result.setResultcode(0);
+        result.setMessage("返回失败");
+        result.setData(data);
+        return result;
+    }
 }
