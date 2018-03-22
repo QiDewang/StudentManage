@@ -24,7 +24,6 @@ public class SutedentController {
     @RequestMapping(value = {"/add", "/addStudent"}, method = RequestMethod.POST)
     @ResponseBody
     public Result addStudent(Student student){
-        log.debug("1231231232");
         return studentService.addStudent(student);
     }
 }

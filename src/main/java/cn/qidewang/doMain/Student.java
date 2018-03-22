@@ -20,9 +20,7 @@ public class Student{
         this.name = name;
     }
 
-    public String getSex() {
-        return sex;
-    }
+    public String getSex() { return sex; }
 
     public void setSex(String sex) {
         this.sex = sex;

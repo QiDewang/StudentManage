@@ -110,6 +110,7 @@
       <version>1.7.7</version>
     </dependency>
 
+    <!--日志在控制台显示必须有的jar-->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
