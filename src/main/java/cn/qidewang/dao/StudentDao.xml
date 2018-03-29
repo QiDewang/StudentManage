@@ -3,6 +3,10 @@
 <mapper namespace="cn.qidewang.dao.StudentDao">
 
     <insert id="addStudent" parameterType="cn.qidewang.doMain.Student">
-        INSERT INTO student(name,age,sex,number,score,update_time) VALUES(#{name},#{age},#{sex},#{number},#{score},now())
+        INSERT INTO student(name,age,sex,phone_number,score,update_time) VALUES(#{name},#{age},#{sex},#{number},#{score},now())
     </insert>
+
+    <select id="getAllStudent" resultType="java.util.Map">
+        SELECT * FROM student;
+    </select>
 </mapper>

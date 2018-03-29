@@ -2,9 +2,11 @@ package cn.qidewang.doMain;
 
 public class Student{
 
+    private String id;
+
     private String name;
 
-    private String sex;
+    private Integer sex;
 
     private String number;
 
@@ -20,9 +22,9 @@ public class Student{
         this.name = name;
     }
 
-    public String getSex() { return sex; }
+    public Integer getSex() { return sex; }
 
-    public void setSex(String sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
@@ -50,5 +52,11 @@ public class Student{
         this.score = score;
     }
 
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 }

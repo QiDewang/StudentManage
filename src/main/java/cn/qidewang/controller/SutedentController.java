@@ -8,8 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/student")
@@ -22,8 +23,17 @@ public class SutedentController {
     private static final Logger log = LoggerFactory.getLogger(SutedentController.class);
 
     @RequestMapping(value = {"/add", "/addStudent"}, method = RequestMethod.POST)
-    @ResponseBody
     public Result addStudent(Student student){
         return studentService.addStudent(student);
+    }
+
+    @RequestMapping(value = "/insertTwo",method = RequestMethod.POST)
+    public Result addTwoStudent(){
+        return studentService.addTwoStudent();
+    }
+
+    @RequestMapping("/getAllStudent")
+    public List getAllStudent(){
+        return studentService.getAllStudent();
     }
 }
