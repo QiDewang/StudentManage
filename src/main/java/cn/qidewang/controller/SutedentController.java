@@ -8,9 +8,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/student")
@@ -33,7 +35,7 @@ public class SutedentController {
     }
 
     @RequestMapping("/getAllStudent")
-    public List getAllStudent(){
-        return studentService.getAllStudent();
+    public Map getAllStudent(@RequestParam String page,@RequestParam String limit){
+        return studentService.getAllStudent(Integer.parseInt(page),Integer.parseInt(limit));
     }
 }

@@ -14,6 +14,14 @@ public class Student{
 
     private Integer score;
 
+    /**
+    * @author 78692
+    * @date 9:29
+    * @param
+     * 身份证号
+    */
+    private String id_number;
+
     public String getName() {
         return name;
     }
@@ -58,5 +66,13 @@ public class Student{
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getId_number() {
+        return id_number;
+    }
+
+    public void setId_number(String id_number) {
+        this.id_number = id_number;
     }
 }

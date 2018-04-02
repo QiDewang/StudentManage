@@ -23,6 +23,7 @@
     <!--扫描controller-->
    <context:component-scan base-package="cn.qidewang.controller"></context:component-scan>
 
+
     <!-- 视图解析器配置 -->
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
         <property name="viewResolvers">
@@ -48,5 +49,6 @@
         <property name="defaultEncoding" value="UTF-8"/>
         <property name="resolveLazily" value="true"/>
     </bean>
+
 
 </beans>

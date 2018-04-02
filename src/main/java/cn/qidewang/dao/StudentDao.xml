@@ -3,10 +3,14 @@
 <mapper namespace="cn.qidewang.dao.StudentDao">
 
     <insert id="addStudent" parameterType="cn.qidewang.doMain.Student">
-        INSERT INTO student(name,age,sex,phone_number,score,update_time) VALUES(#{name},#{age},#{sex},#{number},#{score},now())
+        INSERT INTO student(id,name,age,sex,phone_number,score,update_time,id_number) VALUES(#{id},#{name},#{age},#{sex},#{number},#{score},now(),#{idNumber})
     </insert>
 
-    <select id="getAllStudent" resultType="java.util.Map">
-        SELECT * FROM student;
+    <select id="getAllStudent" resultType="java.util.Map" parameterType="java.lang.Integer">
+        SELECT * FROM student limit #{page},#{limit};
+    </select>
+
+    <select id="getCount" resultType="Integer">
+        SELECT COUNT(*) from student;
     </select>
 </mapper>

@@ -69,7 +69,7 @@
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
-            <table id="demo" lay-filter="test"></table>
+            <table id="demo" lay-filter="test" lay-size="lg"></table>
         </div>
     </div>
 
@@ -89,17 +89,21 @@
 
         //第一个实例
         table.render({
-            elem: '#demo'
-            ,height: 315
-            ,url: '/StudentManager/student/getAllStudent' //数据接口
-            ,page: true //开启分页
-            ,cols: [[ //表头
-                {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
-                ,{field: 'name', title: '用户名', width:80}
-                ,{field: 'sex', title: '性别', width:80, sort: true}
-                ,{field: 'age', title: '城市', width:80}
-                ,{field: 'sign', title: '签名', width: 177}
-
+            elem: '#demo',
+            height: 'full-10',
+            url: '/StudentManager/student/getAllStudent', //数据接口
+            page: true, //开启分页
+            limit: 15,
+            cols: [[ //表头
+                {field: 'id', title: 'ID', width:80,fixed: 'left'},
+                {field: 'name', title: '用户名', width:80},
+                {field: 'sex', title: '性别', width:80},
+                {field: 'age', title: '年龄', width:80},
+                {field: 'id_number', title: '身份证号', width:200},
+                {field: 'score', title: '分数', width:80, sort: true},
+                {field: 'phone_number', title: '电话', width:100},
+                {field: 'creat_time', title: '创建时间', width:150},
+                {field: 'update_time', title: '更新时间', width:150},
             ]]
         });
 

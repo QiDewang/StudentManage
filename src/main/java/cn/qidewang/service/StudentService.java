@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Service
@@ -58,7 +60,11 @@ public class StudentService {
     * @param
      * *查询全部学生信息
     */
-    public List getAllStudent() {
-        return studentDao.getAllStudent();
+    public Map getAllStudent(Integer page,Integer limit) {
+        Map resultMap = new HashMap();
+        resultMap.put("code",0);
+        resultMap.put("count",studentDao.getCount());
+        resultMap.put("data",studentDao.getAllStudent((page-1)*limit,limit));
+        return resultMap;
     }
 }
