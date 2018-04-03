@@ -2,11 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.qidewang.dao.StudentDao">
 
+    <resultMap id="studentdomain" type="cn.qidewang.doMain.Student">
+        <result column="id" property="id"></result>
+        <result column="name" property="name"></result>
+        <result column="age" property="age"></result>
+        <result column="sex" property="sex"></result>
+        <result column="phone_number" property="phonenumber"></result>
+        <result column="score" property="score"></result>
+        <result column="update_time" property="updatetime"></result>
+        <result column="creat_time" property="creattime"></result>
+    </resultMap>
+
     <insert id="addStudent" parameterType="cn.qidewang.doMain.Student">
-        INSERT INTO student(id,name,age,sex,phone_number,score,update_time,id_number) VALUES(#{id},#{name},#{age},#{sex},#{number},#{score},now(),#{idNumber})
+        INSERT INTO student(id,name,age,sex,phone_number,score,update_time,id_number) VALUES(#{id},#{name},#{age},#{sex},#{phonenumber},#{score},now(),#{idNumber})
     </insert>
 
-    <select id="getAllStudent" resultType="java.util.Map" parameterType="java.lang.Integer">
+    <select id="getAllStudent" resultMap="studentdomain" parameterType="java.lang.Integer">
         SELECT * FROM student limit #{page},#{limit};
     </select>
 

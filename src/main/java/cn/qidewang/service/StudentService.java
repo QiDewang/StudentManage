@@ -33,7 +33,6 @@ public class StudentService {
         Student one = new Student();
         one.setAge(2);
         one.setName("oneStudent");
-        one.setNumber("003");
         one.setScore(123);
         one.setSex(1);
         Integer integer = studentDao.addStudent(one);
@@ -41,7 +40,6 @@ public class StudentService {
         Student two = new Student();
         two.setAge(2);
         two.setName("twoStudent");
-        two.setNumber("003");
         two.setScore(123);
         two.setSex(1);
         Integer integer1 = studentDao.addStudent(two);

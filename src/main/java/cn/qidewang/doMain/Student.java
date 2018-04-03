@@ -1,5 +1,9 @@
 package cn.qidewang.doMain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
 public class Student{
 
     private String id;
@@ -8,18 +12,16 @@ public class Student{
 
     private Integer sex;
 
-    private String number;
-
     private Integer age;
+
+    private String phonenumber;
 
     private Integer score;
 
-    /**
-    * @author 78692
-    * @date 9:29
-    * @param
-     * 身份证号
-    */
+    private Date creattime;
+
+    private Date updatetime;
+
     private String id_number;
 
     public String getName() {
@@ -34,14 +36,6 @@ public class Student{
 
     public void setSex(Integer sex) {
         this.sex = sex;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
     }
 
     public Integer getAge() {
@@ -74,5 +68,29 @@ public class Student{
 
     public void setId_number(String id_number) {
         this.id_number = id_number;
+    }
+
+    public Date getCreattime() {
+        return creattime;
+    }
+
+    public void setCreattime(Date creattime) {
+        this.creattime = creattime;
+    }
+
+    public Date getUpdatetime() {
+        return updatetime;
+    }
+
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
+    }
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
     }
 }

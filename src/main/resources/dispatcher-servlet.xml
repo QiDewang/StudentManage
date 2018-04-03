@@ -23,6 +23,10 @@
     <!--扫描controller-->
    <context:component-scan base-package="cn.qidewang.controller"></context:component-scan>
 
+    <!--配置默认资源的访问路径-->
+    <mvc:resources mapping="/images/**" location="/images/" />
+    <mvc:resources mapping="/css/**" location="/js/" />
+    <mvc:resources mapping="/js/**" location="/css/" />
 
     <!-- 视图解析器配置 -->
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
