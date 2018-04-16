@@ -28,7 +28,7 @@
         SELECT COUNT(*) from student;
     </select>
 
-    <select id="getAllStudent" resultType="java.util.List">
+    <select id="getAllStudent" resultMap="studentdomain">
       SELECT * FROM student
     </select>
 </mapper>

@@ -34,6 +34,7 @@ public class ChartControllerTest {
         ResultActions resultActions = this.mockMvc.perform(MockMvcRequestBuilders.post("/chart/ageChart"));
         MvcResult mvcResult = resultActions.andReturn();
         String result = mvcResult.getResponse().getContentAsString();
+        System.out.print(result);
     }
 
 }
