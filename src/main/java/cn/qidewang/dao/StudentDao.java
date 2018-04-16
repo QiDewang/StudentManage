@@ -15,7 +15,8 @@ public interface StudentDao {
     * @param
      * *查询所有学生信息
     */
-    List getAllStudent(@Param("page") Integer page, @Param("limit") Integer limit);
+    List getAllStudentLimit(@Param("page") Integer page, @Param("limit") Integer limit);
 
+    List getAllStudent();
     Integer getCount();
 }

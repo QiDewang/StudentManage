@@ -58,11 +58,17 @@ public class StudentService {
     * @param
      * *查询全部学生信息
     */
-    public Map getAllStudent(Integer page,Integer limit) {
+    public Map getAllStudent(Map requestMap) {
         Map resultMap = new HashMap();
         resultMap.put("code",0);
         resultMap.put("count",studentDao.getCount());
-        resultMap.put("data",studentDao.getAllStudent((page-1)*limit,limit));
+        if(requestMap.get("page") != null){
+            Integer page = (Integer)requestMap.get("page");
+            Integer limit = (Integer)requestMap.get("limit");
+            resultMap.put("data",studentDao.getAllStudentLimit((page-1)*limit,limit));
+            return resultMap;
+        }
+        resultMap.put("data",studentDao.getAllStudent());
         return resultMap;
     }
 }

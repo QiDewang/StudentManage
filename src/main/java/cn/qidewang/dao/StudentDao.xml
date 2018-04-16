@@ -17,11 +17,18 @@
         INSERT INTO student(id,name,age,sex,phone_number,score,update_time,id_number) VALUES(#{id},#{name},#{age},#{sex},#{phonenumber},#{score},now(),#{idNumber})
     </insert>
 
-    <select id="getAllStudent" resultMap="studentdomain" parameterType="java.lang.Integer">
-        SELECT * FROM student limit #{page},#{limit};
+    <select id="getAllStudentLimit" resultMap="studentdomain" parameterType="java.lang.Integer">
+        SELECT * FROM student
+        <if test="page != null">
+            limit #{page},#{limit};
+        </if>
     </select>
 
     <select id="getCount" resultType="Integer">
         SELECT COUNT(*) from student;
+    </select>
+
+    <select id="getAllStudent" resultType="java.util.List">
+      SELECT * FROM student
     </select>
 </mapper>

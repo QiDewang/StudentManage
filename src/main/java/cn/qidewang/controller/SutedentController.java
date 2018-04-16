@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -36,6 +37,11 @@ public class SutedentController {
 
     @RequestMapping("/getAllStudent")
     public Map getAllStudent(@RequestParam String page,@RequestParam String limit){
-        return studentService.getAllStudent(Integer.parseInt(page),Integer.parseInt(limit));
+        Map requestMap = new HashMap();
+        requestMap.put("page",Integer.parseInt(page));
+        requestMap.put("limit",Integer.parseInt(limit));
+        return studentService.getAllStudent(requestMap);
     }
+
+
 }
