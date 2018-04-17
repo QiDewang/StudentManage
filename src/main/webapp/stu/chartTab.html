@@ -7,7 +7,135 @@
     <link rel="stylesheet" href="../layui/css/layui.css">
 </head>
 <body>
+    <div id="pie" style="margin: 25px auto;"></div>
+    <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+    <script src="../Echarts/echarts.min.js"></script>
+    <script>
+        var height;
+        var width;
+        $(function(){
+            initContiner();
+            $.ajax({
+                type:'POST',
+                url:'/StudentManager/chart/ageChart',
+                contentType:"application/x-www-form-urlencoded",
+                data:'',
+                dataType:'json',
+                async:true,
+                success:function(result){
+                    if(result.resultcode == 1){
+                        initChart(result.data);
+                    }
+                }
+            });
+        })
 
+        function initContiner(){
+           height =  document.documentElement.clientHeight - 70;
+           width = document.documentElement.clientWidth - 50;
+           $('#pie').width(width);
+           $('#pie').height(height);
+        }
 
+        function initChart(data){
+            var myChart = echarts.init(document.getElementById('pie'));
+            option = {
+                //backgroundColor: '#2c343c',
+                title: {
+                    text: '学生年龄分布'
+                },
+                tooltip: {},
+                legend: {
+                    data:['年龄']
+                },
+                xAxis: {
+                    data: [data.sortList[0] + '以下',
+                           data.sortList[0] + '-' + data.sortList[1] ,
+                           data.sortList[1] + '-' + data.sortList[2] ,
+                           data.sortList[2] + '以上']
+                },
+                yAxis: {},
+                series: [{
+                    name: '人数',
+                    type: 'bar',
+                    data: data.contList
+                }]
+            };
+//            option = {
+//                backgroundColor: '#2c343c',
+//                title: {
+//                    text: '学生年龄分布',
+//                    left: 'center',
+//                    top: 20,
+//                    textStyle: {
+//                        color: '#ccc'
+//                    }
+//                },
+//
+//                tooltip : {
+//                    trigger: 'item',
+//                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+//                },
+//
+//                visualMap: {
+//                    show: false,
+//                    min: 80,
+//                    max: 600,
+//                    inRange: {
+//                        colorLightness: [0, 1]
+//                    }
+//                },
+//                series : [
+//                    {
+//                        name:'访问来源',
+//                        type:'pie',
+//                        radius : '55%',
+//                        center: ['50%', '50%'],
+//                        data:[
+//                            {value:data.contList[0], name:data.sortList[0] + '以下'},
+//                            {value:data.contList[1], name:data.sortList[0] + '-' + data.sortList[1]},
+//                            {value:data.contList[2], name:data.sortList[1] + '-' + data.sortList[2]},
+//                            {value:data.contList[3], name:data.sortList[2] + '以上'},
+//                            //{value:400, name:'搜索引擎'}
+//                        ].sort(function (a, b) { return a.value - b.value; }),
+//                        roseType: 'radius',
+//                        label: {
+//                            normal: {
+//                                textStyle: {
+//                                    color: 'rgba(255, 255, 255, 0.3)'
+//                                }
+//                            }
+//                        },
+//                        labelLine: {
+//                            normal: {
+//                                lineStyle: {
+//                                    color: 'rgba(255, 255, 255, 0.3)'
+//                                },
+//                                smooth: 0.2,
+//                                length: 10,
+//                                length2: 20
+//                            }
+//                        },
+//                        itemStyle: {
+//                            normal: {
+//                                color: '#c23531',
+//                                shadowBlur: 200,
+//                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+//                            }
+//                        },
+//
+//                        animationType: 'scale',
+//                        animationEasing: 'elasticOut',
+//                        animationDelay: function (idx) {
+//                            return Math.random() * 200;
+//                        }
+//                    }
+//                ]
+//            };
+           // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        }
+
+    </script>
 </body>
 </html>
